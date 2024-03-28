@@ -656,6 +656,8 @@ class Completions(SyncAPIResource):
         tools: Iterable[ChatCompletionToolParam] | NotGiven = NOT_GIVEN,
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
+        tags: Optional[list] | NotGiven = NOT_GIVEN,
+        background: Optional[bool] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -688,6 +690,8 @@ class Completions(SyncAPIResource):
                     "top_logprobs": top_logprobs,
                     "top_p": top_p,
                     "user": user,
+                    "tags": tags,
+                    "background": background
                 },
                 completion_create_params.CompletionCreateParams,
             ),
@@ -1323,6 +1327,8 @@ class AsyncCompletions(AsyncAPIResource):
         tools: Iterable[ChatCompletionToolParam] | NotGiven = NOT_GIVEN,
         top_logprobs: Optional[int] | NotGiven = NOT_GIVEN,
         top_p: Optional[float] | NotGiven = NOT_GIVEN,
+        tags: Optional[list] | NotGiven = NOT_GIVEN,
+        background: Optional[bool] | NotGiven = NOT_GIVEN,
         user: str | NotGiven = NOT_GIVEN,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -1355,6 +1361,8 @@ class AsyncCompletions(AsyncAPIResource):
                     "top_logprobs": top_logprobs,
                     "top_p": top_p,
                     "user": user,
+                    "tags": tags,
+                    "background": background,
                 },
                 completion_create_params.CompletionCreateParams,
             ),

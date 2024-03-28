@@ -79,12 +79,12 @@ _setup_logging()
 # Update the __module__ attribute for exported symbols so that
 # error messages point to this module instead of the module
 # it was originally defined in, e.g.
-# openai._exceptions.NotFoundError -> openai.NotFoundError
+# flyflowclient._exceptions.NotFoundError -> flyflowclient.NotFoundError
 __locals = locals()
 for __name in __all__:
     if not __name.startswith("__"):
         try:
-            __locals[__name].__module__ = "openai"
+            __locals[__name].__module__ = "flyflowclient"
         except (TypeError, AttributeError):
             # Some of our exported symbols are builtins which we can't set attributes for.
             pass
@@ -113,7 +113,7 @@ default_query: _t.Mapping[str, object] | None = None
 
 http_client: _httpx.Client | None = None
 
-_ApiType = _te.Literal["openai", "azure"]
+_ApiType = _te.Literal["flyflowclient", "azure"]
 
 api_type: _ApiType | None = _t.cast(_ApiType, _os.environ.get("OPENAI_API_TYPE"))
 
@@ -227,7 +227,7 @@ class _AzureModuleClient(_ModuleClient, AzureOpenAI):  # type: ignore
 class _AmbiguousModuleClientUsageError(OpenAIError):
     def __init__(self) -> None:
         super().__init__(
-            "Ambiguous use of module client; please set `openai.api_type` or the `OPENAI_API_TYPE` environment variable to `openai` or `azure`"
+            "Ambiguous use of module client; please set `flyflowclient.api_type` or the `OPENAI_API_TYPE` environment variable to `flyflowclient` or `azure`"
         )
 
 
@@ -281,7 +281,7 @@ def _load_client() -> OpenAI:  # type: ignore[reportUnusedFunction]
             if has_azure or has_azure_ad:
                 api_type = "azure"
             else:
-                api_type = "openai"
+                api_type = "flyflowclient"
 
         if api_type == "azure":
             _client = _AzureModuleClient(  # type: ignore

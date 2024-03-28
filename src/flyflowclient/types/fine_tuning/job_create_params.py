@@ -38,7 +38,7 @@ class JobCreateParams(TypedDict, total=False):
     name.
 
     For example, a `suffix` of "custom-model-name" would produce a model name like
-    `ft:gpt-3.5-turbo:openai:custom-model-name:7p4lURel`.
+    `ft:gpt-3.5-turbo:flyflowclient:custom-model-name:7p4lURel`.
     """
 
     validation_file: Optional[str]

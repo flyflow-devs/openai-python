@@ -90,7 +90,7 @@ class LegacyAPIResponse(Generic[R]):
         the `to` argument, e.g.
 
         ```py
-        from openai import BaseModel
+        from flyflowclient import BaseModel
 
 
         class MyModel(BaseModel):
@@ -256,7 +256,7 @@ class LegacyAPIResponse(Generic[R]):
             return cast(R, response)
 
         if inspect.isclass(origin) and not issubclass(origin, BaseModel) and issubclass(origin, pydantic.BaseModel):
-            raise TypeError("Pydantic models must subclass our base model type, e.g. `from openai import BaseModel`")
+            raise TypeError("Pydantic models must subclass our base model type, e.g. `from flyflowclient import BaseModel`")
 
         if (
             cast_to is not object
@@ -313,7 +313,7 @@ class LegacyAPIResponse(Generic[R]):
 class MissingStreamClassError(TypeError):
     def __init__(self) -> None:
         super().__init__(
-            "The `stream` argument was set to `True` but the `stream_cls` argument was not given. See `openai._streaming` for reference",
+            "The `stream` argument was set to `True` but the `stream_cls` argument was not given. See `flyflowclient._streaming` for reference",
         )
 
 

@@ -61,7 +61,7 @@ class Arguments(BaseModel):
 
 
 def _build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description=None, prog="openai")
+    parser = argparse.ArgumentParser(description=None, prog="flyflowclient")
     parser.add_argument(
         "-v",
         "--verbose",
@@ -82,8 +82,8 @@ def _build_parser() -> argparse.ArgumentParser:
         "-t",
         "--api-type",
         type=str,
-        choices=("openai", "azure"),
-        help="The backend API to call, must be `openai` or `azure`",
+        choices=("flyflowclient", "azure"),
+        help="The backend API to call, must be `flyflowclient` or `azure`",
     )
     parser.add_argument(
         "--api-version",

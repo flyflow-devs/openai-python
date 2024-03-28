@@ -8,7 +8,7 @@ OpenAI error:
 
 This feature requires additional dependencies:
 
-    $ pip install openai[{extra}]
+    $ pip install flyflowclient[{extra}]
 
 """
 

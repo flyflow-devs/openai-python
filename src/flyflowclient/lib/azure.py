@@ -138,7 +138,7 @@ class AzureOpenAI(BaseAzureClient[httpx.Client, Stream[Any]], OpenAI):
         http_client: httpx.Client | None = None,
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new synchronous azure openai client instance.
+        """Construct a new synchronous azure flyflowclient client instance.
 
         This automatically infers the following arguments from their corresponding environment variables if they are not provided:
         - `api_key` from `AZURE_OPENAI_API_KEY`
@@ -191,9 +191,9 @@ class AzureOpenAI(BaseAzureClient[httpx.Client, Stream[Any]], OpenAI):
                 )
 
             if azure_deployment is not None:
-                base_url = f"{azure_endpoint}/openai/deployments/{azure_deployment}"
+                base_url = f"{azure_endpoint}/flyflowclient/deployments/{azure_deployment}"
             else:
-                base_url = f"{azure_endpoint}/openai"
+                base_url = f"{azure_endpoint}/flyflowclient"
         else:
             if azure_endpoint is not None:
                 raise ValueError("base_url and azure_endpoint are mutually exclusive")
@@ -371,7 +371,7 @@ class AsyncAzureOpenAI(BaseAzureClient[httpx.AsyncClient, AsyncStream[Any]], Asy
         http_client: httpx.AsyncClient | None = None,
         _strict_response_validation: bool = False,
     ) -> None:
-        """Construct a new asynchronous azure openai client instance.
+        """Construct a new asynchronous azure flyflowclient client instance.
 
         This automatically infers the following arguments from their corresponding environment variables if they are not provided:
         - `api_key` from `AZURE_OPENAI_API_KEY`
@@ -424,9 +424,9 @@ class AsyncAzureOpenAI(BaseAzureClient[httpx.AsyncClient, AsyncStream[Any]], Asy
                 )
 
             if azure_deployment is not None:
-                base_url = f"{azure_endpoint}/openai/deployments/{azure_deployment}"
+                base_url = f"{azure_endpoint}/flyflowclient/deployments/{azure_deployment}"
             else:
-                base_url = f"{azure_endpoint}/openai"
+                base_url = f"{azure_endpoint}/flyflowclient"
         else:
             if azure_endpoint is not None:
                 raise ValueError("base_url and azure_endpoint are mutually exclusive")

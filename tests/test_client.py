@@ -221,10 +221,10 @@ class TestOpenAI:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "openai/_legacy_response.py",
-                        "openai/_response.py",
+                        "flyflowclient/_legacy_response.py",
+                        "flyflowclient/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "openai/_compat.py",
+                        "flyflowclient/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]
@@ -931,10 +931,10 @@ class TestAsyncOpenAI:
                         # to_raw_response_wrapper leaks through the @functools.wraps() decorator.
                         #
                         # removing the decorator fixes the leak for reasons we don't understand.
-                        "openai/_legacy_response.py",
-                        "openai/_response.py",
+                        "flyflowclient/_legacy_response.py",
+                        "flyflowclient/_response.py",
                         # pydantic.BaseModel.model_dump || pydantic.BaseModel.dict leak memory for some reason.
-                        "openai/_compat.py",
+                        "flyflowclient/_compat.py",
                         # Standard library leaks we don't care about.
                         "/logging/__init__.py",
                     ]

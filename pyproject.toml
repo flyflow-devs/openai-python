@@ -1,11 +1,11 @@
 [project]
-name = "openai"
-version = "1.14.2"
-description = "The official Python library for the openai API"
+name = "flyflowclient"
+version = "1.14.3"
+description = "The official Python library for the flyflow API"
 readme = "README.md"
 license = "Apache-2.0"
 authors = [
-{ name = "OpenAI", email = "support@openai.com" },
+{ name = "Flyflow", email = "support@flyflow.dev" },
 ]
 dependencies = [
     "httpx>=0.23.0, <1",
@@ -102,7 +102,7 @@ include = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/openai"]
+packages = ["src/flyflowclient"]
 
 [tool.black]
 line-length = 120

@@ -19,7 +19,7 @@ The REST API documentation can be found [on platform.openai.com](https://platfor
 
 ```sh
 # install from PyPI
-pip install openai
+pip install flyflowclient
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
-from openai import OpenAI
+from flyflow import OpenAI
 
 client = OpenAI(
     # This is the default and can be omitted
